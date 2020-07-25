@@ -1,0 +1,52 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/center/center",
+			"style": {
+				"navigationBarTitleText": "数据中心"
+			}
+		}, {
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "uView",
+		"navigationBarBackgroundColor": "#14162b",
+		"backgroundColor": "#14162b"
+	},
+	"tabBar": {
+		"color": "#ffffff",
+		"selectedColor": "#f12d2d",
+		"borderStyle": "black",
+		"backgroundColor": "#2b2d5e",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/tabbar/shouye01.png",
+			"selectedIconPath": "static/tabbar/shouye.png",
+			"text": "首页"
+		}, {
+			"pagePath": "pages/center/center",
+			"iconPath": "static/tabbar/shuju01.png",
+			"selectedIconPath": "static/tabbar/shuju.png",
+			"text": "数据"
+		}, {
+			"pagePath": "pages/user/user",
+			"iconPath": "static/tabbar/grzx01.png",
+			"selectedIconPath": "static/tabbar/grzx.png",
+			"text": "个人中心"
+		}]
+	}
+}
