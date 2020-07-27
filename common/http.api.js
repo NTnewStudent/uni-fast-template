@@ -23,6 +23,11 @@ const install = (Vue, vm) => {
 	//加解密测试
 	let decodeTest = (params = {}) => vm.$u.get(url + 'index', params)
 
+	//获取短信验证码测试
+	let getPhoneCode = (params = {}) => vm.$u.get(url + 'a031/verify/mobile', params)
+
+	//解密手机号测试
+	let getPhoneNumber = (params = {}) => vm.$u.post(url + 'a031/user/get_mobile', params)
 
 
 	// 将各个定义的接口名称，统一放进对象挂载到vm.$u.api(因为vm就是this，也即this.$u.api)下
@@ -30,7 +35,9 @@ const install = (Vue, vm) => {
 		wxlogin,
 		refreshToken,
 		getUserInfos,
-		decodeTest
+		decodeTest,
+		getPhoneCode,
+		getPhoneNumber
 	}
 }
 

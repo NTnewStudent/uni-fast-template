@@ -6,21 +6,33 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "测试"
 			}
 		},
 		{
 			"path": "pages/center/center",
 			"style": {
-				"navigationBarTitleText": "数据中心"
+				"navigationBarTitleText": "模板"
 			}
 		}, {
 			"path": "pages/user/user",
 			"style": {
-				"navigationBarTitleText": "个人中心"
+				"navigationBarTitleText": "组件"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/componetsDemo/getUserInfoDemo/getUserInfoDemo",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/componetsDemo/getMobileCode/getMobileCode",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/componetsDemo/getWechatPhone/getWechatPhone",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "uView",

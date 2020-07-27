@@ -1,41 +1,38 @@
 <template>
 	<view>
-		<!-- 用户微信获取数据 -->
-		<getuserinfo :loginType="weixin" @getInfo="wxLogin"></getuserinfo>
+		<view v-for="(item,index) in templateUrl" :key="index">
+
+			<button @click="toPage(item.path)">{{item.name}}</button>
+		</view>
 	</view>
 </template>
 
 <script>
-	import getuserinfo from '../../components/get-user-info.vue';
 	export default {
-		components: {
-			getuserinfo
-		},
+
 		data() {
 			return {
-				status: false,
+				templateUrl: [, {
+					"path": "/pages/componetsDemo/getUserInfoDemo/getUserInfoDemo",
+					"name": '获取微信用户授权'
+				}, {
+					"path": "/pages/componetsDemo/getMobileCode/getMobileCode",
+					"name": '获取短信验证码'
+				}, , {
+					"path": "/pages/componetsDemo/getWechatPhone/getWechatPhone",
+					'name': '获取微信手机号'
+				}]
 			}
 		},
-		onLoad() {
-		},
+		onLoad() {},
 		methods: {
-			/**
-			 * 微信登录获取用户信息实际开发请更改API路径
-			 * @param {Object} result
-			 */
-			wxLogin(result) {
-				/**
-				 * 用户信息解密并且返回
-				 * @param {Object} res
-				 * @return {userInfo}
-				 */
-				//api登录
-				this.$u.api.wxlogin(result).then(res => {
-					/**
-					 * 设置userInfo缓存
-					 */
-					console.log(res.data.token)
-					this.CacheManagement.set(this.constCacheKey.token, res.data.token.token)
+			toPage(path) {
+				console.log(path)
+				uni.navigateTo({
+					url: path,
+					fail(res) {
+						console.log(res)
+					}
 				})
 			}
 		}

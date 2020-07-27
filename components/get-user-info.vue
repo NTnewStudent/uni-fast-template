@@ -1,4 +1,3 @@
-<!-- 不要使用open-type 会发生解密失败使用login 在内联getUserInfo可以避免 -->
 <template>
 	<view>
 		<button open-type="getUserInfo" @click="handle">{{texttemp}}</button>
@@ -28,15 +27,28 @@
 					provider: this.type,
 					success(res) {
 						uni.getUserInfo({
-							provider: 'weixin',
+							provider: self.type,
 							success(userInfo) {
-								console.log(userInfo)
-								self.$emit('getInfo', {
+
+								/**
+								 * 
+								 * 请在这里自定义你的token
+								 * 
+								 */
+								self.$u.api.wxlogin({
 									code: res.code,
 									iv: userInfo.iv,
 									encryptedData: userInfo.encryptedData
-								})
+								}).then(res => {
+									/**
+									 * 设置userInfo缓存
+									 */
+									console.log(res.data.token)
+									self.$u.toast('你的登陆token:' + res.data.token)
 
+									self.$emit('getInfo', res.data.token)
+
+								})
 							}
 						})
 					}
